@@ -31,10 +31,10 @@
 
 </RelativeLayout><br>
 步骤三<br>
-   slideMenu = (SlideMenuComponent) findViewById(R.id.slide_menu);
+        
+        slideMenu = (SlideMenuComponent) findViewById(R.id.slide_menu);
         pagerManager = (PagerManager) findViewById(R.id.peger_manager);
-
-        List<Source> list = new ArrayList<>();
+        List<Source> list = new ArrayList<>();
         list.add(new SlideMenuItem("德玛西亚", R.mipmap.icn_1, FragmentOne.newInstance("1")));
         list.add(new SlideMenuItem("大盖伦", R.mipmap.icn_2, FragmentOne.newInstance("2")));
         list.add(new SlideMenuItem("大宝剑", R.mipmap.icn_3, FragmentOne.newInstance("3")));
