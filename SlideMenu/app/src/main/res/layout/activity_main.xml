@@ -13,7 +13,7 @@
 
     <com.shijiwei.slidemenu.widget.slidemenu.widget.SlideMenuComponent
         android:id="@+id/slide_menu"
-        android:layout_width="20dp"
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
         />
 
