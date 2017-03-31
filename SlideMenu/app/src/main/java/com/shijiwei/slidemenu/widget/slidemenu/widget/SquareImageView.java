@@ -1,6 +1,7 @@
 package com.shijiwei.slidemenu.widget.slidemenu.widget;
 
 import android.content.Context;
+import android.graphics.PointF;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -12,17 +13,19 @@ import android.widget.ImageView;
  * Created by shijiwei on 2017/3/16.
  * 高度与宽度相同的ImageView
  */
-public class SquareImageView extends ImageView  {
+public class SquareImageView extends ImageView {
 
     private static final String TAG = SquareImageView.class.getSimpleName();
     private OnInterceptSingleTapClickListener listener;
+    private PointF mCancelPoint = new PointF();
+    private boolean isReleaseFocus = false;
 
     public SquareImageView(Context context) {
-       this(context,null);
+        this(context, null);
     }
 
     public SquareImageView(Context context, AttributeSet attrs) {
-      this(context,attrs,0);
+        this(context, attrs, 0);
     }
 
     public SquareImageView(Context context, AttributeSet attrs, int defStyleAttr) {
@@ -31,15 +34,15 @@ public class SquareImageView extends ImageView  {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-      setMeasuredDimension(getDefaultSize(0,widthMeasureSpec),getDefaultSize(0,heightMeasureSpec));
+        setMeasuredDimension(getDefaultSize(0, widthMeasureSpec), getDefaultSize(0, heightMeasureSpec));
         int childWidthSize = getMeasuredWidth();
-        heightMeasureSpec = widthMeasureSpec = MeasureSpec.makeMeasureSpec(childWidthSize,MeasureSpec.EXACTLY);
-        super.onMeasure(widthMeasureSpec,heightMeasureSpec);
+        heightMeasureSpec = widthMeasureSpec = MeasureSpec.makeMeasureSpec(childWidthSize, MeasureSpec.EXACTLY);
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec);
     }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
-        switch (event.getAction()){
+        switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
                 onTouchEvent(event);
                 return true;
@@ -50,16 +53,18 @@ public class SquareImageView extends ImageView  {
         return super.dispatchTouchEvent(event);
     }
 
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        switch (event.getAction()){
+        switch (event.getAction()) {
             case MotionEvent.ACTION_MOVE:
+                break;
             case MotionEvent.ACTION_CANCEL:
                 setEnabled(true);
-                Log.e(TAG,"ACTION_CANCEL  " + event.getX());
+                isReleaseFocus = true;
+                mCancelPoint.set(event.getX(), event.getY());
                 return super.onTouchEvent(event);
             case MotionEvent.ACTION_UP:
-                Log.e(TAG,"ACTION_UP   " + event.getX());
                 if (listener != null) listener.onInterceptSingleTap(this);
                 setEnabled(true);
                 return true;
@@ -73,11 +78,20 @@ public class SquareImageView extends ImageView  {
     /**
      * intercept the singletap touch event
      */
-    public interface OnInterceptSingleTapClickListener{
+    public interface OnInterceptSingleTapClickListener {
         void onInterceptSingleTap(View view);
     }
 
-    public void setOnInterceptSingleTopClickListener(OnInterceptSingleTapClickListener listener){
+    public void setOnInterceptSingleTopClickListener(OnInterceptSingleTapClickListener listener) {
         this.listener = listener;
+    }
+
+    public boolean getReleaseFocus(){
+        return isReleaseFocus;
+    }
+
+    public PointF getCancelPoint() {
+        isReleaseFocus = false;
+        return mCancelPoint;
     }
 }

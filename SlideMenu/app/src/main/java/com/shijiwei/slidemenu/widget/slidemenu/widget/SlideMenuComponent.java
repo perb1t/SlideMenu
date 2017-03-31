@@ -80,7 +80,7 @@ public class SlideMenuComponent extends LinearLayout implements SquareImageView.
         mAnimotionManager = new AnimotionManager(mPerIntervalTime, mAnimationDuration);
         setLayoutParams(new LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT));
         mSlideMenuItemLayoutParams = new LayoutParams(
-                UISizeHelper.dp2px(getContext(),60),
+                UISizeHelper.dp2px(getContext(), 60),
                 ViewGroup.LayoutParams.MATCH_PARENT);
     }
 
@@ -155,8 +155,29 @@ public class SlideMenuComponent extends LinearLayout implements SquareImageView.
                 }
                 break;
             case MotionEvent.ACTION_CANCEL:
+                break;
             case MotionEvent.ACTION_UP:
-                if (mOutsideTouchable && !mScrollState) hideSlideMenu();
+                if (mOutsideTouchable && !mScrollState) {
+                    if (event.getY() > getChildCount() * getChildAt(0).getWidth()) {
+                        hideSlideMenu();
+                    } else {
+                        if (event.getX() > mSlideMenuItemLayoutParams.width)
+                            hideSlideMenu();
+                    }
+                }
+
+
+                for (int i = 0; i < getChildCount(); i++) {
+                    SquareImageView child = (SquareImageView) getChildAt(i);
+                    if (child != null && child.getReleaseFocus()) {
+                        if (Math.abs(child.getCancelPoint().x - event.getX()) < 5
+                                && Math.abs(child.getCancelPoint().y - event.getY()) < 5
+                                && !mScrollState){
+                            onInterceptSingleTap(child);
+                        }
+                            break;
+                    }
+                }
                 mScrollState = false;
                 break;
         }
