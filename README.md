@@ -1,3 +1,4 @@
+
 # SlideMenu
 ## 侧滑菜单<br>
 之前在博客上面看见有人写了一份类似功能的开源项目，我马上star一波看看源码，发现并不是很好用，但是效果很炫，于是我决定自己重新写一个这样的开源控件。欢迎大家star，一起学习，一起优化这个项目！！<br>
@@ -34,6 +35,7 @@
         
         slideMenu = (SlideMenuComponent) findViewById(R.id.slide_menu);
         pagerManager = (PagerManager) findViewById(R.id.peger_manager);
+        
         List<Source> list = new ArrayList<>();
         list.add(new SlideMenuItem("德玛西亚", R.mipmap.icn_1, FragmentOne.newInstance("1")));
         list.add(new SlideMenuItem("大盖伦", R.mipmap.icn_2, FragmentOne.newInstance("2")));
