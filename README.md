@@ -1,4 +1,5 @@
 
+
 # SlideMenu
 ## 侧滑菜单<br>
 之前在博客上面看见有人写了一份类似功能的开源项目，我马上star一波看看源码，发现并不是很好用，但是效果很炫，于是我决定自己重新写一个这样的开源控件。欢迎大家star，一起学习，一起优化这个项目！！<br>
@@ -9,7 +10,8 @@
 步骤一<br>
 让你的BaseFragment实现ScreenShotable接口（用于View截图与获取）<br>
 
-步骤二<br> xml文件调用<br>
+步骤二<br> 
+xml文件调用<br>
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -30,13 +32,17 @@
         />
 
 
-</RelativeLayout><br>
+</RelativeLayout>
 步骤三<br>
-        ``` java
-        slideMenu = (SlideMenuComponent) findViewById(R.id.slide_menu);
+        ```Java
+  @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        slideMenu = (SlideMenuComponent) findViewById(R.id.slide_menu);
         pagerManager = (PagerManager) findViewById(R.id.peger_manager);
-        
-        List<Source> list = new ArrayList<>();
+
+        List<Source> list = new ArrayList<>();
         list.add(new SlideMenuItem("德玛西亚", R.mipmap.icn_1, FragmentOne.newInstance("1")));
         list.add(new SlideMenuItem("大盖伦", R.mipmap.icn_2, FragmentOne.newInstance("2")));
         list.add(new SlideMenuItem("大宝剑", R.mipmap.icn_3, FragmentOne.newInstance("3")));
@@ -44,6 +50,18 @@
         list.add(new SlideMenuItem("信爷", R.mipmap.icn_5, FragmentOne.newInstance("5")));
         list.add(new SlideMenuItem("诡术妖姬", R.mipmap.icn_6, FragmentOne.newInstance("6")));
         list.add(new SlideMenuItem("辛德拉", R.mipmap.icn_7, FragmentOne.newInstance("7")));
+
+        list.add(new SlideMenuItem("巴德", R.mipmap.icn_1, FragmentOne.newInstance("8")));
+        list.add(new SlideMenuItem("人头狗", R.mipmap.icn_2, FragmentOne.newInstance("9")));
+        list.add(new SlideMenuItem("抢人头", R.mipmap.icn_3, FragmentOne.newInstance("10")));
+        list.add(new SlideMenuItem("我的五杀", R.mipmap.icn_4, FragmentOne.newInstance("11")));
+        list.add(new SlideMenuItem("哈儿", R.mipmap.icn_5, FragmentOne.newInstance("12")));
+        list.add(new SlideMenuItem("瓜娃子", R.mipmap.icn_6, FragmentOne.newInstance("13")));
+        list.add(new SlideMenuItem("你他妈居然看完了", R.mipmap.icn_7, FragmentOne.newInstance("14")));
+
         slideMenu.addSlideMenuItem(list);
         pagerManager.bind(getSupportFragmentManager(),slideMenu);
+
+
+    }
         ```
