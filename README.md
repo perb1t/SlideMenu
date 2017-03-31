@@ -1,4 +1,5 @@
 
+
 # SlideMenu
 ## 侧滑菜单<br>
 之前在博客上面看见有人写了一份类似功能的开源项目，我马上star一波看看源码，发现并不是很好用，但是效果很炫，于是我决定自己重新写一个这样的开源控件。欢迎大家star，一起学习，一起优化这个项目！！<br>
@@ -32,7 +33,7 @@
 
 </RelativeLayout><br>
 步骤三<br>
-        
+        ``` java
         slideMenu = (SlideMenuComponent) findViewById(R.id.slide_menu);
         pagerManager = (PagerManager) findViewById(R.id.peger_manager);
         
@@ -46,3 +47,4 @@
         list.add(new SlideMenuItem("辛德拉", R.mipmap.icn_7, FragmentOne.newInstance("7")));
         slideMenu.addSlideMenuItem(list);
         pagerManager.bind(getSupportFragmentManager(),slideMenu);
+        ```
