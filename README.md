@@ -34,7 +34,7 @@ xml文件调用<br>
 
 </RelativeLayout>
 步骤三<br>
-        ```Java
+```Java
   @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,17 +51,9 @@ xml文件调用<br>
         list.add(new SlideMenuItem("诡术妖姬", R.mipmap.icn_6, FragmentOne.newInstance("6")));
         list.add(new SlideMenuItem("辛德拉", R.mipmap.icn_7, FragmentOne.newInstance("7")));
 
-        list.add(new SlideMenuItem("巴德", R.mipmap.icn_1, FragmentOne.newInstance("8")));
-        list.add(new SlideMenuItem("人头狗", R.mipmap.icn_2, FragmentOne.newInstance("9")));
-        list.add(new SlideMenuItem("抢人头", R.mipmap.icn_3, FragmentOne.newInstance("10")));
-        list.add(new SlideMenuItem("我的五杀", R.mipmap.icn_4, FragmentOne.newInstance("11")));
-        list.add(new SlideMenuItem("哈儿", R.mipmap.icn_5, FragmentOne.newInstance("12")));
-        list.add(new SlideMenuItem("瓜娃子", R.mipmap.icn_6, FragmentOne.newInstance("13")));
-        list.add(new SlideMenuItem("你他妈居然看完了", R.mipmap.icn_7, FragmentOne.newInstance("14")));
-
         slideMenu.addSlideMenuItem(list);
         pagerManager.bind(getSupportFragmentManager(),slideMenu);
 
 
     }
-        ```
+```
