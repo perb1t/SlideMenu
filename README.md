@@ -4,6 +4,7 @@
 之前在博客上面看见有人写了一份类似功能的开源项目，我马上star一波看看源码，发现并不是很好用，但是效果很炫，于是我决定自己重新写一个这样的开源控件。欢迎大家star，一起学习，一起优化这个项目！！<br>
 ### 主要功能介绍<br>
 侧滑菜单对Fragment的切换管理，使用了炫酷的揭露动画
+![image](https://github.com/perbit/SlideMenu/raw/master/effect/effect.gif)
 ### 使用方法<br>
 主要调用类：SlideMenuComponent，PagerManager<br>
 步骤一<br>
@@ -26,7 +27,7 @@ xml文件调用<br>
 
     <com.shijiwei.slidemenu.widget.slidemenu.widget.SlideMenuComponent
         android:id="@+id/slide_menu"
-        android:layout_width="20dp"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         />
 
