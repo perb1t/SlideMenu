@@ -166,7 +166,6 @@ public class SlideMenuComponent extends LinearLayout implements SquareImageView.
                     }
                 }
 
-
                 for (int i = 0; i < getChildCount(); i++) {
                     SquareImageView child = (SquareImageView) getChildAt(i);
                     if (child != null && child.getReleaseFocus()) {
