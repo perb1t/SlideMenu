@@ -9,7 +9,7 @@
 ### 使用方法<br>
 主要调用类：SlideMenuComponent，PagerManager<br>
 步骤一<br>
-让你的BaseFragment实现ScreenShotable接口（用于View截图与获取）<br>
+让你的BaseFragment继承SlideMenuPager（用于View截图与获取）<br>
 
 步骤二<br> 
 xml文件调用<br>
