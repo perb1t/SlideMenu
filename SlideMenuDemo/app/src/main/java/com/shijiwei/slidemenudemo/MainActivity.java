@@ -7,6 +7,7 @@ import com.shijiwei.slidemenu.widget.slidemenu.interfaces.Source;
 import com.shijiwei.slidemenu.widget.slidemenu.modle.SlideMenuItem;
 import com.shijiwei.slidemenu.widget.slidemenu.widget.PagerManager;
 import com.shijiwei.slidemenu.widget.slidemenu.widget.SlideMenuComponent;
+import com.shijiwei.slidemenudemo.base.ArticleFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         list.add(new SlideMenuItem("我的五杀", R.mipmap.icn_4, NumberFragment.newInstance("11")));
         list.add(new SlideMenuItem("哈儿", R.mipmap.icn_5, NumberFragment.newInstance("12")));
         list.add(new SlideMenuItem("瓜娃子", R.mipmap.icn_6, NumberFragment.newInstance("13")));
-        list.add(new SlideMenuItem("你他妈居然看完了", R.mipmap.icn_7, NumberFragment.newInstance("14")));
+        list.add(new SlideMenuItem("你他妈居然看完了", R.mipmap.icn_7, ArticleFragment.newInstance(getResources().getString(R.string.article))));
 
         slideMenu.addSlideMenuItem(list);
         pagerManager.bind(getSupportFragmentManager(), slideMenu);

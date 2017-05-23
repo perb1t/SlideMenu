@@ -10,8 +10,7 @@ import android.graphics.Bitmap;
 public interface ScreenShotable {
 
     /* 截屏 */
-    void captureScreen();
+    Bitmap captureScreen();
 
-    /* 获取截图 */
-    Bitmap getScreen();
+
 }

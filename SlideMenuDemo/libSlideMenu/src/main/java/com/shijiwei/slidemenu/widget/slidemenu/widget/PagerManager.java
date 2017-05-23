@@ -105,7 +105,7 @@ public class PagerManager extends LinearLayout implements SlideMenuComponent.OnS
     public void SlideMenuItemClick(View view, int position, Source source) {
         Log.e(TAG, "target position = " + position + " , current position = " + mPagerIndex);
         if (position == mPagerIndex) return;
-        mOverlayView.setImageBitmap(mSlideMenuComponent.getSourceSet().get(mPagerIndex).getBindPager().getScreen());
+        mOverlayView.setImageBitmap(mSlideMenuComponent.getSourceSet().get(mPagerIndex).getBindPager().captureScreen());
         mViewPager.setCurrentItem(position);
         mToolbar.setmSmallTitle(source.getName());
         mPagerIndex = position;
